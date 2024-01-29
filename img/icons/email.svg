@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="45" height="45" viewBox="0 0 45 45">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Retângulo_60" data-name="Retângulo 60" width="45" height="45" transform="translate(554 2778)" fill="#fff" stroke="#707070" stroke-width="1"/>
+    </clipPath>
+  </defs>
+  <g id="Grupo_de_máscara_6" data-name="Grupo de máscara 6" transform="translate(-554 -2778)" opacity="0.804" clip-path="url(#clip-path)">
+    <path id="mail" d="M1.392,0,22.881,17.523,43.451,0ZM0,29.487,15.308,14.139,0,1.659V29.491ZM17,15.516,1.212,31.337H43.656L28.564,15.516,23.6,19.753h0a1.1,1.1,0,0,1-1.384.018ZM30.223,14.11,45,29.612V1.523Z" transform="translate(554 2784.832)"/>
+  </g>
+</svg>

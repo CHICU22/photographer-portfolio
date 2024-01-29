@@ -1,0 +1,536 @@
+/**********
+FONTS
+**********/
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+/* font-family: 'Cormorant Garamond', serif; */
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+/* font-family: 'Lato', sans-serif; */
+
+/**********
+ROOT
+**********/
+:root{
+    --cor-primaria: #423F3E;
+    --cor-secundaria:#575352;
+    --cor-terciario: #858688;
+    --cor-adicional: #5e94d5;
+    --cor-adicional-filter: invert(50%) sepia(56%) saturate(471%) hue-rotate(173deg) brightness(89%) contrast(93%);
+}
+
+/**********
+GLOBAL
+**********/
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.container {
+    width: 90%;
+    margin: auto;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
+/**********
+Loader
+**********/
+.loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 6;
+}
+
+.lds-ellipsis {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+  }
+  .lds-ellipsis div {
+    position: absolute;
+    top: 33px;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background: #fff;
+    animation-timing-function: cubic-bezier(0, 1, 1, 0);
+  }
+  .lds-ellipsis div:nth-child(1) {
+    left: 8px;
+    animation: lds-ellipsis1 0.6s infinite;
+  }
+  .lds-ellipsis div:nth-child(2) {
+    left: 8px;
+    animation: lds-ellipsis2 0.6s infinite;
+  }
+  .lds-ellipsis div:nth-child(3) {
+    left: 32px;
+    animation: lds-ellipsis2 0.6s infinite;
+  }
+  .lds-ellipsis div:nth-child(4) {
+    left: 56px;
+    animation: lds-ellipsis3 0.6s infinite;
+  }
+
+  /* Animação do loader */
+  @keyframes lds-ellipsis1 {
+    0% {
+      transform: scale(0);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  @keyframes lds-ellipsis3 {
+    0% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(0);
+    }
+  }
+  @keyframes lds-ellipsis2 {
+    0% {
+      transform: translate(0, 0);
+    }
+    100% {
+      transform: translate(24px, 0);
+    }
+  }
+
+/**********
+NAVBAR
+**********/
+.navbar__section {
+    padding-top: 20px;
+    grid-column: 1 / span 1;
+}
+
+    .navbar__logo{
+        position: fixed;
+        width: 230px;
+    }
+  
+    .navbar__lista{
+        position: fixed;
+
+        list-style-type: none;
+
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 1.5rem;
+        line-height: 2;
+
+        padding-top: 80px;
+    }
+
+        .navbar__items {
+            font-weight: 700;
+            color: var(--cor-primaria);
+        }
+
+        .navbar__categorias__links{
+            color: var(--cor-secundaria);
+            
+            transition: 300ms;
+            padding-left: 20px;
+        }
+
+        .navbar__categorias__links:hover{
+            color:var(--cor-terciario);
+            letter-spacing: 2px;
+
+            transition: 300ms;
+        }
+
+            .navbar__categorias--inactive {
+                display: none;
+            }
+
+        .navbar__portfolio__button {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar__seta {
+            width: 8px;
+            margin-left: 6px;
+        }
+        
+            .navbar__seta--active {
+                transform: rotate(90deg);
+            }
+
+/**********
+NAVBAR MOBILE
+**********/
+
+/*** 
+Fechado 
+***/
+.navbar__mobile--closed {
+    display: none;
+    visibility: hidden;
+}
+
+    .navbar__logo__mobile {
+        margin-left: 2rem;
+        width: 100px;
+    }
+
+    .navbar__hamburger {
+        width: 20px;
+        cursor: pointer;
+        z-index: 5;
+    }
+
+    .navbar__mobile__categorias__lista {
+        display: none;
+        align-items: center;
+        justify-content: space-evenly;
+
+        grid-column: 1 / span 5;
+        padding-bottom: 30px;
+        text-decoration: underline;
+        font-size: 1.23rem;
+    }
+
+    .navbar__mobile__categorias {
+        color: var(--cor-secundaria);
+    }
+
+/***
+Aberto 
+***/
+.navbar__mobile--open {
+    display: none;
+    position: fixed;
+    background-color: var(--cor-primaria);
+
+    top:0;
+    left:0;
+    height: 100vh;
+    width: 100vw;
+
+    overflow: hidden;
+    z-index: 2;
+}
+
+.navbar__mobile__top--open {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 90%;
+    margin: auto;
+
+    grid-column: 1 / span 5;
+    padding: 25px 0;
+    overflow-x: hidden;
+}
+
+    .navbar__logo__mobile--open {
+        filter: invert(100%);
+    }
+
+    .navbar__close{
+        filter: invert(100%);
+        
+        width: 20px;
+        margin-top: 8px;
+        cursor: pointer;
+    }
+  
+.navbar__mobile__bottom--open{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 80%;
+
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    color: #FFFFFF;
+
+    line-height: 2;
+}
+
+    .navbar__items__mobile {
+        color: #FFFFFF;
+        font-weight: 700;
+        
+        transition: 100ms;
+        transition-timing-function: ease-in-out;
+    }
+
+    .navbar__items__mobile:hover {
+        color: var(--cor-adicional);
+    }
+
+/**********
+HOME
+**********/
+.home{
+    display: flex;
+    grid-column: 2/ span 5;
+    padding-top: 2rem;
+    padding-left: 3.5rem;
+}
+
+    .home__image{
+        width: 100%;
+    }
+
+    .home__image__mobile {
+        display: none;
+    }
+
+/**********
+PORTFOLIO
+**********/
+.portfolio__fotos {
+    grid-column: 2 / span 5;
+
+    padding-top: 60px;
+    padding-bottom: 20px;
+}
+
+    .portfolio__foto {
+        cursor: pointer;
+
+        max-width: 400px;
+      
+        padding: 5px;
+        transition: 300ms;
+    }
+
+        .portfolio__foto:hover{
+            filter: brightness(120%);
+            transition: 300ms;
+        }
+
+        .foto {
+            object-fit: cover;
+            max-height: 100%;
+            max-width: 400px;
+        }
+
+/**********
+ABOUT & CONTACT
+**********/
+.contact, .about {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column: 2 / span 5;
+
+    font-family: 'Lato', sans-serif;
+
+    padding-top: 60px;
+}
+
+    .contact__image, .about__image {
+        width: 100%;
+    }
+
+    .contact div, .about div {
+        grid-column: 2 / span 3;
+        margin-left: 3.5rem;
+    }
+
+        .contact__heading, .about__heading {
+            position: relative;
+
+            font-size: 2.5rem;
+            font-weight: 600;
+
+            margin-bottom: 2rem;
+        }
+
+        .contact__heading:before, .about__heading:before {
+            content: '';
+            position: absolute;
+
+            height: 2px;
+            bottom: 0;
+
+            background-color: var(--cor-adicional);
+        }
+
+            .contact__heading:before {
+                width: 210px;
+            }
+
+            .about__heading:before {
+                width: 180px;
+            }
+ 
+        .contact__text, .about__text {
+            font-size: 1.1rem;
+            font-weight: 300;
+            line-height: 1.7;
+
+            max-width: 600px;
+        }
+
+    .contact__details li{
+        display: flex;
+        align-items: center;
+
+        font-size: 1.2rem;
+        font-weight: 300;
+        padding-bottom: 1rem;
+    }
+
+    .contact__icon {
+        width: 45px;
+        margin-right: 1rem;
+    }
+
+/**********
+FOOTER
+**********/
+.footer {
+    display: flex;
+    justify-content: space-between;
+	align-items: center;
+
+    font-family:'Lato', sans-serif;
+    font-size: 0.9rem;
+    color: var(--cor-terciario);
+	text-align: center;
+
+    background-color: #ffffff;
+	
+	bottom: 0;
+	width: 100%;
+    padding-bottom: 20px;
+}
+
+    .footer__redes-sociais img {
+        width: 25px;
+        margin-right: 20px;
+        transition: 100ms;
+        transition-timing-function: ease-in-out;
+    }
+
+    .footer__redes-sociais img:hover {
+        filter: var(--cor-adicional-filter);
+        transform: translateY(-3px);
+    }
+
+/**********
+MOBILE
+**********/
+@media (max-width:1440px) {
+    .navbar__section {
+        display: none;
+    }
+    .navbar__mobile--closed {
+        display: flex;
+        visibility:visible;
+    
+        grid-column: 1 / span 5;
+        padding: 30px 0;
+    }
+    .navbar__mobile__categorias__lista {
+        display: flex;
+    }
+    .home{
+        grid-column: 1 / span 6;
+        padding: 0;
+    }    
+    .portfolio__fotos {
+        grid-template-columns: 1fr 1fr;
+    
+        padding-top: 0;
+
+        grid-column: 1 / span 5;
+    }
+    .navbar__mobile--closed {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .contact, .about {
+        grid-column: 1 / span 5;
+        grid-template-columns: 1fr 1fr;
+    }
+    .contact div, .about div {
+        margin-left: 1rem;
+    }
+    .contact__image, .about__image {
+        width: 500px;
+        height: 800px;
+    }
+}
+
+@media (max-width:1000px) {
+    .home__image {
+        display: none;
+    }
+    .home__image__mobile {
+        display: block;
+        width: 100%;
+    }
+    .portfolio__fotos {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+    .portfolio__foto {
+        max-width: 100%;
+    }
+    .contact, .about {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        grid-template-columns: 1fr;
+    }
+    .contact div, .about div {
+        grid-column: span 1 ;
+        order: 1;
+        margin-left: 0;
+        padding-bottom: 1.5rem;
+    }
+    .contact__heading, .about__heading {
+        margin-bottom: 1.5rem;
+    }
+    .contact__text, .about__text {
+        max-width: 440px;
+        line-height: 2;
+    }
+    .contact__image, .about__image {
+        order: 2;
+        width: 440px;
+        height: 650px;
+    }
+    .footer__redes-sociais img {
+        width: 22px;
+        margin-right: 10px;
+    }
+}
+
